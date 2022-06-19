@@ -25,18 +25,39 @@ header {
     max-width: 1000px;
    
 }
-.cardlayout {
-    background-color: #A7E9AF;
+.cartaLayout {
     width: 117px;
     height: 146px;
+    margin: 17px;
+    perspective: 1000px;
+}
+.cartaConteudo {
+    position: relative;
+    background-color: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin: 17px;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
-.cardlayout img {
-    width: 100px;
-    height: 100px;
+.frente, .verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.verso {
+    transform: rotateY(180deg);
+}
+.frente img, .verso img {
     padding: 24px 7px 22px 10px;
+}
+.virado {
+    transform: rotateY(180deg);
+}
+.removido {
+    display: none;
 }
 
 @media (max-width: 480px) {
