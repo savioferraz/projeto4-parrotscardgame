@@ -7,6 +7,9 @@ Consiste em um jogo de memória simples onde o usuário insere a quantidade de c
 
 -- Changelog --
 
+Versão 0.4:
+-Cartas embaralhadas;
+
 Versão 0.3:
 -Adicionado contador de jogadas;
 -Adicionada função de fim de jogo;
