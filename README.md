@@ -6,6 +6,9 @@ Consiste em um jogo de memória simples onde o usuário insere a quantidade de c
 
 -- Changelog --
 
+Versão 0.2:
+-Adicionada função de verificar par.
+
 Versão 0.1:
 -Criado layout básico;
 -Responsividade mobile em 480px;
