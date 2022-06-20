@@ -7,6 +7,11 @@ Consiste em um jogo de memória simples onde o usuário insere a quantidade de c
 
 -- Changelog --
 
+Versão 1.0:
+-Resolvido bug de selecionar carta já selecionada;
+-Adicionada opção de jogar novamente;
+-Melhorada a aparencia geral e animações;
+
 Versão 0.4:
 -Cartas embaralhadas;
 
