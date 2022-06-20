@@ -9,48 +9,40 @@ var temCartaVirada = false;
 var primeiraCarta;
 var segundaCarta;
 
-// iniciar();
-// function iniciar(){
+iniciar();
+function iniciar(){
 //     qtdcartas = prompt ("Com quantas cartas deseja jogar? (utilize apenas números pares de 4 a 14)");
 // while (isNaN(qtdcartas) || (qtdcartas % 2 != 0) || (qtdcartas < 3) || (qtdcartas > 14)) {
 //     iniciar();
 // }
-// }
-
-for (let i = 0; i < (qtdcartas / 2); i++){
-    const cartasTemplate = `
-     <div class="cartaLayout" onclick="virar(this)">
-        <div class="cartaConteudo" style="order: ${i}" data-figura="${figurascartas[i]}">
-            <div class="frente"><img src="./images/front.png" style="width:100px;height:100px";></div>
-            <div class="verso"><img src="./images/${figurascartas[i]}.gif" style="width:100px;height:100px"></div>
-        </div> 
-   </div>`;
-document.querySelector(".tabuleiro").innerHTML += cartasTemplate;
+distribuirCartas(qtdcartas);
 }
 
-for (let i = (qtdcartas / 2); i < qtdcartas; i++){
-    const cartasTemplate = `
-     <div class="cartaLayout" onclick="virar(this)">
-        <div class="cartaConteudo" style="order: ${i}" data-figura="${figurascartas[i-(qtdcartas/2)]}">
-            <div class="frente"><img src="./images/front.png" style="width:100px;height:100px";></div>
-            <div class="verso"><img src="./images/${figurascartas[i-(qtdcartas/2)]}.gif" style="width:100px;height:100px"></div>
-        </div> 
-   </div>`;
-document.querySelector(".tabuleiro").innerHTML += cartasTemplate;
+function distribuirCartas(num){
+    contador = 0;
+    let figurasArray = figurascartas.slice(0, num/2);
+    let cartasArray = figurasArray.concat(figurasArray);
+    cartasArray.sort(embaralhar);
+
+    while (contador < qtdcartas) {
+        const cartasTemplate = `
+        <div class="cartaLayout" onclick="virar(this)">
+            <div class="cartaConteudo" data-figura="${cartasArray[contador]}">
+                <div class="frente"><img src="./images/front.png" style="width:100px;height:100px";></div>
+                <div class="verso"><img src="./images/${cartasArray[contador]}.gif" style="width:100px;height:100px"></div>
+            </div> 
+    </div>`;
+    let tabuleiro = document.querySelector(".tabuleiro");
+    tabuleiro.innerHTML += cartasTemplate;
+    contador ++;
+    }
 }
-
-cartasNode = document.querySelectorAll(".cartaLayout");
-const cartasArray = Array.from(cartasNode);
-
-cartasArray.sort(embaralhar);
 
 function embaralhar() {
     return Math.random() - 0.5;
 }
 
 function virar(elemento) {
-    if (bloquear) return;
-    if (this === primeiraCarta) return;
     cartaVirada = elemento.querySelector(".cartaConteudo");
     cartaVirada.classList.add("virado");
     if (!temCartaVirada) {
@@ -82,6 +74,7 @@ function removerCartas() {
     acertos ++;
     if (acertos === (qtdcartas/2)) {
         alert (`Parabéns! Você venceu com ${jogadas/2} jogadas!`);
+
     }
 }
 
