@@ -30,6 +30,7 @@ header {
     height: 146px;
     margin: 17px;
     perspective: 1000px;
+    transition: transform 0.2s;
 }
 .cartaConteudo {
     position: relative;
@@ -38,8 +39,13 @@ header {
     border-radius: 5px;
     height: 100%;
     width: 100%;
+    box-shadow: 2px 2px 5px grey;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    cursor: pointer;
+}
+.cartaLayout:hover {
+    transform: scale(1.1) ;
 }
 .frente, .verso {
     position: absolute;
@@ -57,7 +63,7 @@ header {
     transform: rotateY(180deg);
 }
 .removido {
-    display: none;
+    background-color: peachpuff;
 }
 
 @media (max-width: 480px) {
