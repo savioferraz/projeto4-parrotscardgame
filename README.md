@@ -4,7 +4,12 @@ Projeto 4 - ParrotCardGame (curso Driven)
 Projeto 4 do curso de desenvolvimento Full-stack da Driven. 
 Consiste em um jogo de memória simples onde o usuário insere a quantidade de cartas que deseja jogar.
 
+
 -- Changelog --
+
+Versão 0.3:
+-Adicionado contador de jogadas;
+-Adicionada função de fim de jogo;
 
 Versão 0.2:
 -Adicionada função de verificar par.
